@@ -14,18 +14,19 @@ Once started, the project will be accessible at:
 
 ## ✅ Core features
 
-- 🐘 **Symfony** — A minimal Symfony skeleton.
-- 🐞 **Xdebug** — Debugger installed and enabled.
-- 📦 **Composer** — Dependency manager installed and ready to use.
-- 🌐 **Custom local domain** — The application is exposed at `http://playground.localhost` via reverse proxy.
+- 🐘 **Symfony** — A minimal Symfony skeleton
+- 🔧 **Symfony Flex** — Symfony packages are pinned to the latest LTS release
+- 🐞 **Xdebug** — Debugger installed and enabled
+- 📦 **Composer** — Dependency manager installed and ready to use
+- 🌐 **Custom local domain** — The application is exposed at `http://playground.localhost` via reverse proxy
 
 ## ✅ Additional features
 
-- 📦 **Composer Normalizer** — Analyze and fix `composer.json` using `composer normalize`.
-- 🧹 **PHP CS Fixer** — Preconfigured with opinionated rules. Run with `composer fix:standards`.
-- 🔍 **PHPStan** — Configured with max level for source code and level 5 for tests. Run with `composer analyze:phpstan`.
-- 🧪 **PHPUnit** — Installed and ready to run tests using `composer test`.
-- 🧱 **PHPat** — Architecture testing plugin for PHPStan. Includes a hexagonal architecture example. Executed as part of `composer analyze:phpstan`.
+- 📦 **Composer Normalizer** — Analyze and fix `composer.json` using `composer normalize`
+- 🧹 **PHP CS Fixer** — Preconfigured with opinionated rules. Run with `composer fix:standards`
+- 🔍 **PHPStan** — Configured with max level for source code and level 5 for tests. Run with `composer analyze:phpstan`
+- 🧪 **PHPUnit** — Installed and ready to run tests using `composer test`
+- 🏛️ **PHPat** — Architecture testing plugin for PHPStan. Includes a hexagonal architecture example. Executed as part of `composer analyze:phpstan`
 
 #### 🧪 Run all analyzers
 
