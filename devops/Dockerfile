@@ -3,6 +3,10 @@ FROM php:8.4-alpine
 # Set the working directory inside the container
 WORKDIR /var/www
 
+# Install Composer
+RUN apk --no-cache add curl \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Install system dependencies needed for building Xdebug
 RUN apk add --no-cache $PHPIZE_DEPS linux-headers
 

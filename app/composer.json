@@ -1,0 +1,56 @@
+{
+    "name": "antoni-alvarez/symfony-boilerplate",
+    "description": "Containerized Symfony boilerplate",
+    "license": "proprietary",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Antoni Alvarez"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "symfony/flex": "^2.8",
+        "symfony/framework-bundle": "^6.4",
+        "symfony/runtime": "^6.4"
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1"
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-intl-grapheme": "*",
+        "symfony/polyfill-intl-normalizer": "*",
+        "symfony/polyfill-mbstring": "*",
+        "symfony/polyfill-php83": "*"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
+        "allow-plugins": {
+            "symfony/flex": true,
+            "symfony/runtime": true
+        }
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "require": "^6.4"
+        }
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        }
+    }
+}
