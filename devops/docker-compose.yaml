@@ -1,0 +1,11 @@
+services:
+  playground:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../app:/var/www
+    expose:
+      - "80"
+    ports:
+      - "9003:9003"
