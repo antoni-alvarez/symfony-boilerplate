@@ -18,6 +18,7 @@
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2",
+        "php-cs-fixer/shim": "^3",
         "phpunit/phpunit": "^11.5",
         "symfony/maker-bundle": "^1",
         "symfony/phpunit-bridge": "^6.4"
@@ -63,10 +64,16 @@
             "composer validate",
             "composer normalize --dry-run"
         ],
+        "analyze:standards": [
+            "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=dots"
+        ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
+        "fix:standards": [
+            "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix --verbose --show-progress=dots"
+        ],
         "test": [
             "bin/phpunit -c tests/phpunit.xml"
         ]
