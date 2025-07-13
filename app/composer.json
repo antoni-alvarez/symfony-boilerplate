@@ -19,6 +19,10 @@
     "require-dev": {
         "ergebnis/composer-normalize": "^2",
         "php-cs-fixer/shim": "^3",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2",
+        "phpstan/phpstan-phpunit": "^2",
+        "phpstan/phpstan-symfony": "^2",
         "phpunit/phpunit": "^11.5",
         "symfony/maker-bundle": "^1",
         "symfony/phpunit-bridge": "^6.4"
@@ -45,6 +49,7 @@
     "config": {
         "allow-plugins": {
             "ergebnis/composer-normalize": true,
+            "phpstan/extension-installer": true,
             "symfony/flex": true,
             "symfony/runtime": true
         },
@@ -60,9 +65,18 @@
         }
     },
     "scripts": {
+        "analyze:all": [
+            "@analyze:lint",
+            "@analyze:standards",
+            "@analyze:phpstan"
+        ],
         "analyze:lint": [
-            "composer validate",
+            "composer validate --strict",
             "composer normalize --dry-run"
+        ],
+        "analyze:phpstan": [
+            "vendor/bin/phpstan analyse -c phpstan.dist.neon",
+            "vendor/bin/phpstan analyse -c tests/phpstan.tests.neon"
         ],
         "analyze:standards": [
             "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=dots"
