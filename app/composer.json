@@ -15,7 +15,9 @@
         "symfony/runtime": "^6.4"
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1"
+        "phpunit/phpunit": "^11.5",
+        "symfony/maker-bundle": "^1",
+        "symfony/phpunit-bridge": "^6.4"
     },
     "replace": {
         "symfony/polyfill-ctype": "*",
@@ -29,6 +31,11 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "config": {
@@ -51,6 +58,9 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        }
+        },
+        "test": [
+            "bin/phpunit -c tests/phpunit.xml"
+        ]
     }
 }
