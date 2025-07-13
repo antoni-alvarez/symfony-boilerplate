@@ -3,12 +3,15 @@ FROM php:8.4-alpine
 # Set the working directory inside the container
 WORKDIR /var/www
 
+# Install system dependencies needed for Xdebug and Intl
+RUN apk add --no-cache $PHPIZE_DEPS linux-headers icu-dev
+
+# Install Intl PHP extension
+RUN docker-php-ext-install intl
+
 # Install Composer
 RUN apk --no-cache add curl \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-# Install system dependencies needed for building Xdebug
-RUN apk add --no-cache $PHPIZE_DEPS linux-headers
 
 # Install XDebug
 RUN pecl install xdebug && docker-php-ext-enable xdebug
