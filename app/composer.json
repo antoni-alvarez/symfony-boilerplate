@@ -26,6 +26,7 @@
         "phpstan/phpstan-symfony": "^2",
         "phpunit/phpunit": "^11.5",
         "symfony/maker-bundle": "^1",
+        "symfony/monolog-bundle": "^3.10",
         "symfony/phpunit-bridge": "^6.4"
     },
     "replace": {
