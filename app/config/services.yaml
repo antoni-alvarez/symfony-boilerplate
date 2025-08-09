@@ -1,0 +1,13 @@
+parameters:
+    redis_dsn: '%env(REDIS_DSN_HOST)%/%env(REDIS_DB)%'
+    redis_prefix: 'app-%env(APP_ENV)%:'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Adapter\Infrastructure\Redis\RedisClient:
+        arguments:
+            $dsn: '%redis_dsn%'
+            $prefix: '%redis_prefix%'

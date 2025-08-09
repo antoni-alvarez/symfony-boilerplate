@@ -20,8 +20,13 @@ services:
     container_name: playground
     environment:
       - VIRTUAL_HOST=playground.localhost
+    depends_on:
+      - redis
+      - reverse-proxy
     volumes:
       - ../app:/var/www
+    env_file:
+      - .env
     expose:
       - "80"
     ports:
@@ -29,3 +34,11 @@ services:
       - "9003:9003"
     networks:
       - playground
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    networks:
+      - playground
+    ports:
+      - "6379:6379"

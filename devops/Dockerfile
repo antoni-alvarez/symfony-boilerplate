@@ -16,6 +16,9 @@ RUN apk --no-cache add curl \
 # Install XDebug
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
+# Install Redis
+RUN pecl install redis && docker-php-ext-enable redis
+
 # Copy XDebug conf
 COPY php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
