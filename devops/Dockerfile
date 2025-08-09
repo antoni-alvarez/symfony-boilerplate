@@ -19,6 +19,9 @@ RUN pecl install xdebug && docker-php-ext-enable xdebug
 # Copy XDebug conf
 COPY php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
+# Increase PHP memory limit
+RUN echo "memory_limit=1G" > /usr/local/etc/php/conf.d/zz-memory-limit.ini
+
 # Expose server on port 80
 EXPOSE 80
 
