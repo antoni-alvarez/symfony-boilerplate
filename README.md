@@ -6,11 +6,13 @@ This is a lightweight Docker-based boilerplate for quickly setting up a Symfony 
 
 Simply run:
 
-    make start
+```bash
+  make start
+```
 
 Once started, the project will be accessible at:
 
-    http://playground.localhost
+[http://playground.localhost](http://playground.localhost)
 
 ## ✅ Core features
 
@@ -32,4 +34,6 @@ Once started, the project will be accessible at:
 
 To run all code quality tools (linter, fixer, and static analysis) at once, you can use:
 
-    composer a:a
+```bash
+  docker compose -f devops/docker-compose.yaml exec playground composer a:a
+```
