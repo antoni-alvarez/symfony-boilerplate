@@ -82,14 +82,14 @@
             "vendor/bin/phpstan analyse -c tests/phpstan.tests.neon"
         ],
         "analyze:standards": [
-            "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=dots"
+            "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=dots"
         ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "fix:standards": [
-            "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix --verbose --show-progress=dots"
+            "vendor/bin/php-cs-fixer fix --verbose --show-progress=dots"
         ],
         "test": [
             "bin/phpunit -c tests/phpunit.xml"
