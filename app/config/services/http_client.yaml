@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Adapter\Framework\Http\Client\GuzzleHttpClient: ~
+    App\Adapter\Framework\Http\Client\SymfonyHttpClient: ~
+
+    App\Application\Http\Client\HttpClientInterface: '@App\Adapter\Framework\Http\Client\SymfonyHttpClient'

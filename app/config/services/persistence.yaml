@@ -1,0 +1,7 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Adapter\Framework\Persistence\:
+        resource: '%kernel.project_dir%/src/Adapter/Framework/Persistence/*'

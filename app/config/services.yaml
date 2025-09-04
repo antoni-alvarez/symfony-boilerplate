@@ -1,17 +1,9 @@
-parameters:
-    redis_dsn: '%env(REDIS_DSN_HOST)%/%env(REDIS_DB)%'
-    redis_prefix: 'app-%env(APP_ENV)%:'
+imports:
+    - { resource: services/controllers.yaml }
+    - { resource: services/persistence.yaml }
+    - { resource: services/redis.yaml }
 
 services:
     _defaults:
         autowire: true
         autoconfigure: true
-
-    App\Adapter\Framework\Http\Controller\:
-      resource: '%kernel.project_dir%/src/Adapter/Framework/Http/Controller/*'
-      tags: [ 'controller.service_arguments' ]
-
-    App\Adapter\Infrastructure\Redis\RedisClient:
-        arguments:
-            $dsn: '%redis_dsn%'
-            $prefix: '%redis_prefix%'
