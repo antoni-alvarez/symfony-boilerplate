@@ -1,5 +1,8 @@
 start: up install clear welcome
 
+stop:
+	docker compose -f devops/docker-compose.yaml stop
+
 clear:
 	docker compose -f devops/docker-compose.yaml exec playground bin/console c:c
 
@@ -19,6 +22,6 @@ ssh:
 welcome:
 	@echo ""
 	@echo "🎉 Project is up and running!"
-	@echo "🔗 Open your browser and visit: http://playground.localhost"
+	@echo "🔗 Open your browser and visit: http://usados.localhost"
 	@echo "🚀 Happy coding!"
 	@echo ""
