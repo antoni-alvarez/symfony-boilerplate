@@ -22,6 +22,6 @@ ssh:
 welcome:
 	@echo ""
 	@echo "🎉 Project is up and running!"
-	@echo "🔗 Open your browser and visit: http://usados.localhost"
+	@echo "🔗 Open your browser and visit: http://playground.localhost"
 	@echo "🚀 Happy coding!"
 	@echo ""
