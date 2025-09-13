@@ -3,8 +3,8 @@ FROM php:8.4-alpine
 # Set the working directory inside the container
 WORKDIR /var/www
 
-# Install system dependencies needed for Xdebug and Intl
-RUN apk add --no-cache $PHPIZE_DEPS linux-headers icu-dev
+# Install system dependencies needed for Xdebug, Intl and PostgreSQL
+RUN apk add --no-cache $PHPIZE_DEPS linux-headers icu-dev postgresql-dev
 
 # Install Intl PHP extension
 RUN docker-php-ext-install intl
@@ -15,6 +15,9 @@ RUN apk --no-cache add curl \
 
 # Install XDebug
 RUN pecl install xdebug && docker-php-ext-enable xdebug
+
+# Install PostgreSQL
+RUN docker-php-ext-install pdo pdo_pgsql
 
 # Install Redis
 RUN pecl install redis && docker-php-ext-enable redis

@@ -22,6 +22,7 @@ services:
       - VIRTUAL_HOST=playground.localhost
     depends_on:
       - redis
+      - postgres
       - reverse-proxy
     volumes:
       - ../app:/var/www
@@ -42,3 +43,21 @@ services:
       - playground
     ports:
       - "6379:6379"
+
+  postgres:
+    image: postgres:17
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: playground_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - playground
+
+volumes:
+  postgres_data:
