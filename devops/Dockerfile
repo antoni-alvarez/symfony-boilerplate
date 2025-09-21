@@ -22,14 +22,25 @@ RUN docker-php-ext-install pdo pdo_pgsql
 # Install Redis
 RUN pecl install redis && docker-php-ext-enable redis
 
+# Install Supervisor
+RUN apk add --no-cache supervisor
+
 # Copy XDebug conf
 COPY php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Increase PHP memory limit
 RUN echo "memory_limit=1G" > /usr/local/etc/php/conf.d/zz-memory-limit.ini
 
+# Copy supervisor config for workers
+COPY supervisor/supervisord.conf /etc/supervisord.conf
+COPY supervisor/crond.conf /etc/supervisor/conf.d/crond.conf
+COPY supervisor/php_server.conf /etc/supervisor/conf.d/php_server.conf
+
+# Crontab
+COPY cron/root /etc/crontabs/root
+
 # Expose server on port 80
 EXPOSE 80
 
-# Start PHP built-in server
-CMD ["php", "-S", "0.0.0.0:80", "-t", "public"]
+# Start Supervisor with PHP built-in server
+CMD ["supervisord", "-c", "/etc/supervisord.conf"]
