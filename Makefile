@@ -1,10 +1,13 @@
-start: up install clear welcome
+start: prepare up install clear welcome
 
 stop:
 	docker compose -f devops/docker-compose.yaml stop
 
 clear:
 	docker compose -f devops/docker-compose.yaml exec playground bin/console c:c
+
+prepare:
+	mkdir -p var/log
 
 up:
 	docker compose -f devops/docker-compose.yaml build --pull && \
