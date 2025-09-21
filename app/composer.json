@@ -17,6 +17,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.4",
         "doctrine/orm": "^3.5",
         "guzzlehttp/guzzle": "^7.10",
+        "ramsey/uuid": "^4.9",
         "symfony/console": "^7.3",
         "symfony/flex": "^2.8",
         "symfony/framework-bundle": "^7.3",
