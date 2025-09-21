@@ -1,0 +1,15 @@
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+        types:
+            uuid: Ramsey\Uuid\Doctrine\UuidType
+
+    orm:
+        auto_generate_proxy_classes: true
+        enable_lazy_ghost_objects: true
+        mappings:
+            App:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/mapping'
+                prefix: 'App\Domain\Entity'

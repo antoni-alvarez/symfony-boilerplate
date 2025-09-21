@@ -18,6 +18,7 @@
         "doctrine/orm": "^3.5",
         "guzzlehttp/guzzle": "^7.10",
         "ramsey/uuid": "^4.9",
+        "ramsey/uuid-doctrine": "^2.1",
         "symfony/console": "^7.3",
         "symfony/flex": "^2.8",
         "symfony/framework-bundle": "^7.3",
