@@ -6,6 +6,7 @@ namespace App\Adapter\Framework\Http\Validator;
 
 use Symfony\Component\Validator\Exception\ValidationFailedException;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+
 use function count;
 
 final readonly class ApiInputValidator
