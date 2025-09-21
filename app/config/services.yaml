@@ -4,6 +4,7 @@ imports:
     - { resource: services/http_client.yaml }
     - { resource: services/persistence.yaml }
     - { resource: services/redis.yaml }
+    - { resource: services/services.yaml }
 
 services:
     _defaults:

@@ -5,4 +5,3 @@ services:
 
     App\Adapter\Framework\Http\Controller\:
         resource: '%kernel.project_dir%/src/Adapter/Framework/Http/Controller/*'
-        tags: [ 'controller.service_arguments' ]
