@@ -1,4 +1,5 @@
 imports:
+    - { resource: services/commands.yaml }
     - { resource: services/controllers.yaml }
     - { resource: services/http_client.yaml }
     - { resource: services/persistence.yaml }
