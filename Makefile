@@ -14,7 +14,7 @@ up:
 	docker compose -f devops/docker-compose.yaml up -d --force-recreate
 
 install:
-	docker compose -f devops/docker-compose.yaml exec playground sh -c 'if [ ! -d vendor ]; then composer install; fi'
+	docker compose -f devops/docker-compose.yaml exec playground sh -c 'if [ ! -d vendor ] || [ ! -f bin/console ]; then composer install -n; fi'
 
 down:
 	docker compose -f devops/docker-compose.yaml down
