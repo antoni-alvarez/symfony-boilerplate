@@ -7,6 +7,8 @@ parameters:
     phpat:
         ignore_built_in_classes: true
         show_rule_names: true
+    doctrine:
+       objectManagerLoader: tests/object-manager.php
 includes:
     - vendor/phpstan/phpstan/conf/bleedingEdge.neon
 
