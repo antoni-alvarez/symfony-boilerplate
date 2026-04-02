@@ -1,4 +1,4 @@
-FROM php:8.4-alpine
+FROM php:8.5-alpine
 
 # Set the working directory inside the container
 WORKDIR /var/www
