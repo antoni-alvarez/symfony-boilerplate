@@ -18,7 +18,7 @@ return (new PhpCsFixer\Config())
     ->setRules([
         //Presets
         '@PhpCsFixer' => true,
-        '@PHP84Migration' => true,
+        '@PHP8x5Migration' => true,
 
         //Customized rules
         'blank_line_before_statement' => ['statements' => ['continue', 'do', 'for', 'foreach', 'if', 'return', 'switch', 'throw', 'try', 'while']],
