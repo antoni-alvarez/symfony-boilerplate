@@ -24,6 +24,7 @@ return (new PhpCsFixer\Config())
         'blank_line_before_statement' => ['statements' => ['continue', 'do', 'for', 'foreach', 'if', 'return', 'switch', 'throw', 'try', 'while']],
         'concat_space' => ['spacing' => 'one'],
         'global_namespace_import' => ['import_classes' => true, 'import_constants' => true, 'import_functions' => true],
+        'method_argument_space' => ['attribute_placement' => 'same_line'],
         'no_superfluous_phpdoc_tags' => ['remove_inheritdoc' => true],
         'ordered_imports' => ['imports_order' => ['class', 'function', 'const']],
         'phpdoc_line_span' => ['const' => 'single', 'property' => 'single'],
