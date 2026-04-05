@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Adapter\Framework\Http\Transformer;
 
-use App\Application\Exception\BudgetExceededException;
 use App\Application\Exception\BusinessLogicException;
 use App\Application\Exception\NotFoundException;
 use InvalidArgumentException;
@@ -91,7 +90,6 @@ final readonly class ApiExceptionTransformer
     private function getBadRequestExceptions(): array
     {
         return [
-            BudgetExceededException::class,
             BusinessLogicException::class,
             InvalidArgumentException::class,
             ValidationFailedException::class,
