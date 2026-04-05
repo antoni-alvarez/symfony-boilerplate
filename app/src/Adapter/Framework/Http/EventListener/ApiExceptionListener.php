@@ -9,7 +9,7 @@ use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
-#[AsEventListener(event: KernelEvents::EXCEPTION, method: 'onKernelException')]
+#[AsEventListener(event: KernelEvents::EXCEPTION, method: 'onKernelException', priority: -10)]
 final readonly class ApiExceptionListener
 {
     public function __construct(
