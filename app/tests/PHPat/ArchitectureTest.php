@@ -14,11 +14,11 @@ class ArchitectureTest
     {
         return PHPat::rule()
             ->classes(Selector::inNamespace('App\Domain'))
-            ->shouldNotDependOn()
+            ->canOnlyDependOn()
             ->classes(
-                Selector::inNamespace('App\Application'),
-                Selector::inNamespace('App\Adapter'),
-                Selector::inNamespace('Symfony'),
+                Selector::inNamespace('App\Domain'),
+                Selector::inNamespace('Psr'),
+                Selector::inNamespace('Ramsey\Uuid'),
             );
     }
 
@@ -26,9 +26,12 @@ class ArchitectureTest
     {
         return PHPat::rule()
             ->classes(Selector::inNamespace('App\Application'))
-            ->shouldNotDependOn()
+            ->canOnlyDependOn()
             ->classes(
-                Selector::inNamespace('App\Adapter'),
+                Selector::inNamespace('App\Application'),
+                Selector::inNamespace('App\Domain'),
+                Selector::inNamespace('Psr'),
+                Selector::inNamespace('Ramsey\Uuid'),
             );
     }
 }
