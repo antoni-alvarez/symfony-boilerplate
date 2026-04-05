@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Adapter\Framework\Http\Transformer;
 
+use App\Application\Exception\BudgetExceededException;
+use App\Application\Exception\BusinessLogicException;
+use App\Application\Exception\NotFoundException;
 use InvalidArgumentException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,7 +36,6 @@ final readonly class ApiExceptionTransformer
                 'code' => (string) $status,
                 'message' => $message,
             ],
-            'data' => null,
         ];
 
         $event->setResponse(new JsonResponse($payload, $status));
@@ -89,6 +91,8 @@ final readonly class ApiExceptionTransformer
     private function getBadRequestExceptions(): array
     {
         return [
+            BudgetExceededException::class,
+            BusinessLogicException::class,
             InvalidArgumentException::class,
             ValidationFailedException::class,
         ];
@@ -100,6 +104,7 @@ final readonly class ApiExceptionTransformer
     private function getNotFoundExceptions(): array
     {
         return [
+            NotFoundException::class,
             NotFoundHttpException::class,
         ];
     }
