@@ -22,18 +22,36 @@ Once started, the project will be accessible at:
 - 📦 **Composer** — Dependency manager installed and ready to use
 - 🌐 **Custom local domain** — The application is exposed at `http://playground.localhost` via reverse proxy
 
-## ✅ Additional features
+## ✅ Code Quality & Standards
 
-- 📦 **Composer Normalizer** — Analyze and fix `composer.json` using `composer normalize`
-- 🧹 **PHP CS Fixer** — Preconfigured with opinionated rules. Run with `composer fix:standards`
-- 🔍 **PHPStan** — Configured with max level for source code and level 5 for tests. Run with `composer analyze:phpstan`
-- 🧪 **PHPUnit** — Installed and ready to run tests using `composer test`
-- 🏛️ **PHPat** — Architecture testing plugin for PHPStan. Includes a hexagonal architecture example. Executed as part of `composer analyze:phpstan`
+The project is built with a strong focus on maintainability, adhering to modern PHP best practices and strict architectural rules.
 
-#### 🧪 Run all analyzers
+### 📐 Standards & Principles
 
-To run all code quality tools (linter, fixer, and static analysis) at once, you can use:
+-   **PSR Compliance**: The codebase follows **PSR-1, PSR-2, PSR-4, and PSR-12** standards for naming, autoloading, and coding style.
+-   **Strict Typing**: All PHP files contain `declare(strict_types=1);` to ensure type safety and prevent common runtime errors.
+-   **Hexagonal Architecture**: Business logic is decoupled from infrastructure using Ports & Adapters, enforced by automated tests.
+
+### 🛠️ Tooling & Enforcement
+
+We use a comprehensive suite of tools to ensure code quality:
+
+-   🔍 **PHPStan (Level Max)**: Static analysis configured at the highest level for the `src/` directory to catch potential bugs and type mismatches.
+-   🧹 **PHP CS Fixer**: Automatically enforces Symfony and PSR coding standards.
+-   🏛️ **PHPat**: Architecture testing for PHPStan that validates hexagonal layer dependencies (e.g., Application cannot have external dependencies).
+-   📦 **Composer Normalizer**: Ensures `composer.json` is always valid and consistently formatted.
+-   🧪 **PHPUnit**: Full suite of functional tests ensuring business logic and API integrity.
+
+### 🧪 Run all analyzers
+
+To run the entire suite of analyzers (linter, standards, and static analysis) at once:
 
 ```bash
-  docker compose -f devops/docker-compose.yaml exec playground composer a:a
+docker compose -f devops/docker-compose.yaml exec playground composer analyze:all
 ```
+
+Individual commands available:
+- `composer analyze:phpstan` — Static analysis & Architecture tests.
+- `composer analyze:standards` — Coding style check (Dry run).
+- `composer fix:standards` — Automatic coding style fix.
+- `composer analyze:lint` — Composer validation and normalization check.
