@@ -25,6 +25,7 @@ return (new PhpCsFixer\Config())
         'concat_space' => ['spacing' => 'one'],
         'global_namespace_import' => ['import_classes' => true, 'import_constants' => true, 'import_functions' => true],
         'method_argument_space' => ['attribute_placement' => 'same_line'],
+        'multiline_whitespace_before_semicolons' => ['strategy' => 'no_multi_line'],
         'no_superfluous_phpdoc_tags' => ['remove_inheritdoc' => true],
         'ordered_imports' => ['imports_order' => ['class', 'function', 'const']],
         'phpdoc_line_span' => ['const' => 'single', 'property' => 'single'],
@@ -57,7 +58,6 @@ return (new PhpCsFixer\Config())
         //Disabled rules from presets
         'binary_operator_spaces' => false,
         'increment_style' => false,
-        'multiline_whitespace_before_semicolons' => false,
         'php_unit_internal_class' => false,
         'php_unit_test_class_requires_covers' => false,
         'return_assignment' => false,
