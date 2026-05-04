@@ -20,6 +20,7 @@ services:
     container_name: playground
     environment:
       - VIRTUAL_HOST=playground.localhost
+      - PHP_IDE_CONFIG=serverName=playground
     depends_on:
       - redis
       - postgres
@@ -32,7 +33,6 @@ services:
       - "80"
     ports:
       - "8080:80"
-      - "9003:9003"
     networks:
       - playground
 
